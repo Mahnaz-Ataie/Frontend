@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library System</title>
+ 
+  <link rel="stylesheet" href="/style.css">
+<main>
+</head>
+<body>
+  <header>
+    <!-- my fist page home part -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="#" class="logo"> 
+          <img src="images/logo.png" alt="logo">
+          <span>Warm your day with reading</span>
+        </a>
+      </div>
+      <ul class="navbar-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#book-list">Books</a></li>
+        <li><a href="#account">Account</a></li>
+        <li><a href="#request">Request</a></li>
+      </ul>
+      <button class="navbar-toggle" id="navbarToggle" onclick="toggleMenu()">☰</button>
+    </nav>
+  </header>
+  <div id="home" class="container">
+    
+    <div class="column-text-column">
+        <h1>Online Library</h1>
+        <p>Welcome to the online Library, This library is made for searching online books and download them in order to 
+          read them. I hope you enjoy your reading.</p>
+        
+</div>
+</div>
+</div>
+
+
+<div class="container-book-list">
+
+    <div id="book-list">
+      <ul>
+        <% books.forEach(book => { %>
+          <div class="book-card">
+            <li>
+                <h3><%= book.title %></h3>
+                <a class="download-link" href="<%= book.filepath %>" download>Download</a>
+                <p><%= book.description %></p>
+                <img class="b-c-i" src="<%= book.image %>" alt="Cover of <%= book.title %>">
+                <div class="button-container">
+                
+                
+      </div>
+    </div>
+            </li>
+         
+        <% }) %>
+    </ul>
+  </div>
+</div>
+
+    
+
+<!-- the tird page account part -->
+<div  id="account" class="account_container">
+  <div class="image-column">
+      <img src="images/login.png" alt="Login Illustration" class="login-image">
+    </div>
+  <div class="form-column">
+    <h1 class="account-title">Account</h1>
+      <h1 class="account-welcome">Welcome Back!</h1>
+      <br>
+      <p class="account_passage">here: you can make your personal account and recive notification of new books</p>
+      <div class="button-container">
+        <br>
+          <a href="/users/login" class="btn login">Login</a>
+          <a href="/users/signIn" class="btn signup">Sign In</a>
+      </div>
+  </div>
+</div>
+<!-- the forth page is request part -->
+ <br>
+ <br>
+
+  <div id="request" class="request-container">
+    <div class="form-container">
+  <h1>Request a Book</h1>
+  <form id="requestForm" onsubmit="showPopup(event)">
+      <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+          <label for="book-title">Book Title</label>
+          <input type="text" id="book-title" name="book-title" required>
+      </div>
+
+      <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author" required>
+      </div>
+      <button type="submit">Submit Request</button>
+  </form>
+</div>
+<div class="request_image-container">
+  <img src="images/request.png" alt="Library Image"> <!-- Use the uploaded image -->
+</div>
+</div>
+<div id="popup" class="popup">
+  <div class="popup-content">
+      <p>Your request has been sent successfully</p>
+      <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+<script src="app.js"></script>
+</main>
+
+  <!-- footer -->
+<footer>
+  <div class="footer-part">
+    <p>&copy; 2024 Mahnaz Ataie. All rights reserved.</p>
+ </div>
+</footer>
+</body>
+</html>
